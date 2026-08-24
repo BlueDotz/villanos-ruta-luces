@@ -87,14 +87,20 @@ function buildVillainCard(v, index) {
   const card = document.createElement("div");
   card.className = "villain-card";
 
-  const imageUrl = state.images[v.id];
+  const uploadedUrl = state.images[v.id];
+  const staticCandidates = ["jpg", "jpeg", "png", "webp"].map((ext) => `images/${v.id}.${ext}`);
   const searchUrl = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent("disfraz " + v.name)}`;
+
+  // Si hay foto subida desde la web, esa manda. Si no, probamos la carpeta images/.
+  const initialSrc = uploadedUrl || staticCandidates[0];
+  const fallbackQueue = uploadedUrl ? [] : staticCandidates.slice(1);
 
   card.innerHTML = `
     <div class="villain-photo" style="background: linear-gradient(135deg, ${meta.color}E6 0%, ${meta.color}99 100%);">
-      ${imageUrl ? `<img src="${imageUrl}" alt="Foto de referencia de ${v.name}" />` : `<span class="letter">${v.name.charAt(0)}</span>`}
+      <img src="${initialSrc}" alt="Foto de referencia de ${v.name}" data-fallback='${JSON.stringify(fallbackQueue)}' />
+      <span class="letter" style="display:none;">${v.name.charAt(0)}</span>
       <span class="exp-tag">EXP. Nº ${String(index + 1).padStart(3, "0")}</span>
-      <button class="photo-edit-btn" data-action="open-editor">${imageUrl ? "Cambiar" : "Añadir foto"}</button>
+      <button class="photo-edit-btn" data-action="open-editor">${uploadedUrl ? "Cambiar" : "Añadir foto"}</button>
       <div class="photo-editor" style="display:none;">
         <label style="color:#fff; text-transform:none; font-weight:700; font-size:0.72rem;">📤 Sube una foto desde tu dispositivo</label>
         <label class="file-btn">
@@ -103,7 +109,7 @@ function buildVillainCard(v, index) {
         </label>
         <p class="err" style="display:none;"></p>
         <div class="row">
-          ${imageUrl ? `<button data-action="remove-photo">🗑️ Quitar foto</button>` : ""}
+          ${uploadedUrl ? `<button data-action="remove-photo">🗑️ Quitar foto</button>` : ""}
           <button data-action="close-editor">✕ Cerrar</button>
         </div>
       </div>
@@ -118,6 +124,20 @@ function buildVillainCard(v, index) {
       <a class="ref-link" href="${searchUrl}" target="_blank" rel="noopener noreferrer" style="color:${meta.color};">Ver referencia visual ↗</a>
     </div>
   `;
+
+  const imgEl = card.querySelector("img");
+  const letterEl = card.querySelector(".letter");
+  imgEl.addEventListener("error", () => {
+    const queue = JSON.parse(imgEl.dataset.fallback || "[]");
+    if (queue.length) {
+      const next = queue.shift();
+      imgEl.dataset.fallback = JSON.stringify(queue);
+      imgEl.src = next;
+    } else {
+      imgEl.style.display = "none";
+      letterEl.style.display = "block";
+    }
+  });
 
   const editor = card.querySelector(".photo-editor");
   card.querySelector('[data-action="open-editor"]').addEventListener("click", () => {
