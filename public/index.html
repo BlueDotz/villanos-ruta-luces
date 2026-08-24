@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Villanos &amp; Malvados · Ruta de las Luces 2026</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">RUTA DE LAS LUCES · NAVIDAD 2026</span>
+    <h1>Villanos &amp; Malvados</h1>
+    <p>Elegid vuestro disfraz para la ruta. Mirad la galería, votad vuestras tres opciones favoritas y comprobad en tiempo real quién va disfrazado de quién.</p>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab-btn active" data-tab="galeria">🖼️ Villanos</button>
+  <button class="tab-btn" data-tab="propuestas">💡 Propón tu villano</button>
+  <button class="tab-btn" data-tab="encuesta">📋 Elige tu disfraz</button>
+  <button class="tab-btn" data-tab="resultados">🏆 Resultados <span class="badge" id="votedBadge">0/9</span></button>
+</nav>
+
+<main class="container">
+
+  <!-- GALERÍA -->
+  <section id="tab-galeria" class="tab-panel active">
+    <div class="intro-card">
+      <p><strong>¡Hola patatas!!!!</strong> Algún día habíamos decidido disfrazarnos de malvados y villanas para la ruta de las luces de este año. Así que he creado esta web para que veáis los candidatos que hay, y si queréis vosotros podéis añadir alguno que os guste más. En la sección "Elige tu disfraz", cada uno puede elegir los tres que más le gustan. Entre todos podemos ver de qué vamos a ir, para no coincidir ninguno. ¿Os parece? Pues venga, mirad los candidatos y elegid cuál os gusta más. Gracias, patatas, por participar.</p>
+    </div>
+    <h2 id="galleryTitle">Los 20 candidatos</h2>
+    <p class="muted">Ordenados como un expediente de "los más buscados".</p>
+    <div class="grid" id="villainGrid"></div>
+  </section>
+
+  <!-- PROPUESTAS -->
+  <section id="tab-propuestas" class="tab-panel">
+    <div class="narrow">
+      <h2>Propón tu villano</h2>
+      <p class="muted">¿Ninguno de los candidatos te convence? Propón tu malvado o malvada favorito y el resto del grupo lo verá aquí.</p>
+
+      <form id="proposalForm" class="card form">
+        <div>
+          <label>Tu nombre (opcional)</label>
+          <select id="proposalBy"></select>
+        </div>
+        <div>
+          <label>Nombre del villano o villana</label>
+          <input type="text" id="proposalName" placeholder="Ej: Ursula, la bruja del mar" />
+        </div>
+        <div>
+          <label>¿Por qué mola? (opcional)</label>
+          <textarea id="proposalNote" rows="3" placeholder="Cuenta cómo sería el disfraz o por qué te gusta"></textarea>
+        </div>
+        <div id="proposalMsg" class="msg" style="display:none;"></div>
+        <button type="submit" class="btn-primary">✉️ Enviar propuesta</button>
+      </form>
+
+      <div id="proposalsList" class="proposals-list"></div>
+    </div>
+  </section>
+
+  <!-- ENCUESTA -->
+  <section id="tab-encuesta" class="tab-panel">
+    <div class="narrow">
+      <h2>Elige tu disfraz</h2>
+      <p class="muted">Selecciona tu nombre y marca tus tres villanos preferidos, por orden. Si alguien más ya ha votado, sus respuestas no cambian: solo se guardan las tuyas.</p>
+
+      <div class="card">
+        <label>¿Quién eres?</label>
+        <select id="votePerson"></select>
+
+        <div id="voteFormWrap" style="display:none;">
+          <div class="field">
+            <label>1ª opción</label>
+            <select id="voteFirst"></select>
+          </div>
+          <div class="field">
+            <label>2ª opción</label>
+            <select id="voteSecond"></select>
+          </div>
+          <div class="field">
+            <label>3ª opción</label>
+            <select id="voteThird"></select>
+          </div>
+          <div id="voteMsg" class="msg" style="display:none;"></div>
+          <button id="voteSaveBtn" class="btn-primary">✓ Guardar mi elección</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section id="tab-resultados" class="tab-panel">
+    <div class="results-header">
+      <div>
+        <h2>Cómo va la votación</h2>
+        <p class="muted" id="resultsSummary">0 de 9 han votado.</p>
+      </div>
+      <button id="refreshBtn" class="btn-secondary">🔄 Actualizar</button>
+    </div>
+
+    <div class="card table-card">
+      <table>
+        <thead>
+          <tr><th>Persona</th><th>1ª opción</th><th>2ª opción</th><th>3ª opción</th></tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+    </div>
+
+    <div class="card" id="popularityCard" style="margin-top:24px; display:none;">
+      <h3>🏆 Los más deseados</h3>
+      <p class="muted small">Puntuación: 3 puntos por 1ª opción, 2 por 2ª y 1 por 3ª.</p>
+      <div id="popularityList"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">Ruta de las Luces 2026 · Tema: villanos y malvados</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
