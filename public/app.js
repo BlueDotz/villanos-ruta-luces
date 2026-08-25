@@ -17,26 +17,19 @@ const COMPLEXITY_META = {
 };
 
 const VILLAINS = [
-  { id: "joker", name: "Joker", category: "comic", complexity: "media", note: "El villano más icónico del cómic: admite infinitas versiones de traje y maquillaje." },
-  { id: "vader", name: "Darth Vader", category: "cine", complexity: "alta", note: "Capa negra, respiración pesada y el casco más reconocible de la ciencia ficción." },
-  { id: "harley", name: "Harley Quinn", category: "comic", complexity: "media", note: "Un derroche de rojo y azul, muy divertido y fácil de identificar de lejos." },
-  { id: "voldemort", name: "Lord Voldemort", category: "fantasia", complexity: "baja", note: "Con túnica oscura, maquillaje pálido y una varita, el disfraz está casi hecho." },
   { id: "malefica", name: "Maléfica", category: "fantasia", complexity: "alta", note: "Cuernos, capa negra y mucha actitud: uno de los disfraces femeninos más espectaculares." },
-  { id: "freddy", name: "Freddy Krueger", category: "terror", complexity: "media", note: "Jersey a rayas rojo y verde, sombrero fedora y guante de cuchillas: reconocible al instante." },
   { id: "cruella", name: "Cruella de Vil", category: "cine", complexity: "media", note: "Abrigo de pieles a dos tonos y moño bicolor: puro glamour villano." },
-  { id: "hannibal", name: "Hannibal Lecter", category: "terror", complexity: "baja", note: "La máscara metálica hace casi todo el trabajo; el resto es un mono sencillo." },
-  { id: "pennywise", name: "Pennywise", category: "terror", complexity: "alta", note: "Maquillaje de payaso elaborado y globos rojos: muy potente si alguien se anima con el make-up." },
-  { id: "ghostface", name: "Ghostface", category: "terror", complexity: "baja", note: "Túnica negra y máscara blanca: el disfraz de terror más rápido de montar." },
-  { id: "alexdelarge", name: "Alex DeLarge", category: "cine", complexity: "media", note: "Bombín, pestaña postiza, bastón y un vaso de leche: un look muy teatral." },
-  { id: "bellatrix", name: "Bellatrix Lestrange", category: "fantasia", complexity: "media", note: "Melena alborotada, ropa oscura y varita: un disfraz con mucho carácter." },
-  { id: "catwoman", name: "Catwoman", category: "comic", complexity: "baja", note: "Traje de cuero negro ajustado: un clásico que siempre acierta." },
   { id: "garfio", name: "Capitán Garfio", category: "cine", complexity: "alta", note: "Levita roja, garfio dorado y sombrero de plumas: muy teatral y fácil de exagerar." },
-  { id: "chucky", name: "Chucky", category: "terror", complexity: "baja", note: "Peto vaquero, camiseta a rayas y un cuchillo de juguete: terror ochentero muy reconocible." },
-  { id: "drevil", name: "Dr. Evil", category: "comedia", complexity: "baja", note: "Calva, traje gris Nehru y el meñique en la boca: ideal para hacer el gamberro toda la noche." },
   { id: "farquaad", name: "Lord Farquaad", category: "comedia", complexity: "media", note: "Capa morada y una silueta diminuta muy exagerada: de los que más risas arrancan." },
-  { id: "jigsaw", name: "Jigsaw / Billy the Puppet", category: "terror", complexity: "alta", note: "Traje negro, pajarita roja, cara blanca pintada y espirales rojas en las mejillas: una de las imágenes más inquietantes del terror." },
-  { id: "poisonivy", name: "Poison Ivy", category: "comic", complexity: "alta", note: "Verde, hojas y enredaderas por todo el cuerpo: muy reconocible y de las opciones más espectaculares." },
   { id: "reinamalvada", name: "Reina Malvada", category: "fantasia", complexity: "media", note: "Capa oscura, corona y una manzana como complemento: un clásico Disney elegante donde los haya." },
+  { id: "ursula", name: "Úrsula", category: "fantasia", complexity: "alta", note: "Tentáculos morados, collar de caracola y mucho dramatismo: la villana marina más visual de Disney." },
+  { id: "reinacorazones", name: "Reina de Corazones", category: "fantasia", complexity: "media", note: "Vestido de naipes en rojo y negro, corona y ganas de gritar \"¡que le corten la cabeza!\"." },
+  { id: "gru", name: "Gru", category: "comedia", complexity: "baja", note: "Abrigo y bufanda negros, nariz prominente y actitud de villano reformado: fácil y muy reconocible." },
+  { id: "yzma", name: "Yzma", category: "comedia", complexity: "alta", note: "Vestido morado ajustado, peinado imposible y maquillaje extremo: puro histrionismo." },
+  { id: "syndrome", name: "Syndrome", category: "comic", complexity: "media", note: "Traje ajustado negro y rojo con capa (aunque él mismo se ríe de las capas) y guantelete de rayos." },
+  { id: "brujablancanieves", name: "La bruja de Blancanieves", category: "terror", complexity: "alta", note: "Capa harapienta, nariz ganchuda, verruga postiza y una manzana roja envenenada como atrezzo estrella." },
+  { id: "gaston", name: "Gastón", category: "comedia", complexity: "media", note: "Camisa roja entallada, botas altas y un mechón engominado: la arrogancia hecha disfraz." },
+  { id: "vector", name: "Vector", category: "comedia", complexity: "media", note: "Traje futurista naranja y negro con gafas de piloto: el villano friki por excelencia." },
 ];
 
 const PEOPLE = ["Mariano", "Esther", "Santi", "Rafa", "Bea", "Laura", "Javi", "Álvaro", "Fer"];
