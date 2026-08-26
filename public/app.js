@@ -30,6 +30,7 @@ const VILLAINS = [
   { id: "brujablancanieves", name: "La bruja de Blancanieves", category: "terror", complexity: "alta", note: "Capa harapienta, nariz ganchuda, verruga postiza y una manzana roja envenenada como atrezzo estrella." },
   { id: "gaston", name: "Gastón", category: "comedia", complexity: "media", note: "Camisa roja entallada, botas altas y un mechón engominado: la arrogancia hecha disfraz." },
   { id: "vector", name: "Vector", category: "comedia", complexity: "media", note: "Traje futurista naranja y negro con gafas de piloto: el villano friki por excelencia." },
+  { id: "hades", name: "Hades", category: "fantasia", complexity: "alta", note: "Piel azul grisácea, pelo de llama azul (o morada) y toga oscura: el dios del inframundo, con muy mala leche." },
 ];
 
 const PEOPLE = ["Mariano", "Esther", "Santi", "Rafa", "Bea", "Laura", "Javi", "Álvaro", "Fer"];
